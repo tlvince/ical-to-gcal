@@ -1,0 +1,40 @@
+{
+  "name": "ical-to-gcal",
+  "version": "0.0.0",
+  "description": "Sync iCal to Google Calendar",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlvince/ical-to-gcal.git"
+  },
+  "keywords": [
+    "ical",
+    "calendar",
+    "google"
+  ],
+  "author": "Tom Vincent <git@tlvince.com> (https://tlvince.com)",
+  "engines": {
+    "npm": ">=6",
+    "node": ">=8"
+  },
+  "bugs": {
+    "url": "https://github.com/tlvince/ical-to-gcal/issues"
+  },
+  "homepage": "https://github.com/tlvince/ical-to-gcal#readme",
+  "dependencies": {
+    "delay": "4.1.0",
+    "googleapis": "34.0.0",
+    "node-ical": "0.8.0",
+    "p-map": "2.0.0",
+    "simple-get-promise": "1.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "6.1.0",
+    "standard": "12.0.1"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT"
+}
