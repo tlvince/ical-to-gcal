@@ -12,9 +12,11 @@ const importEvents = async (events) => {
   }
 
   console.log(`found ${events.length} events`)
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/calendar.events']
-  })
+
+  const jsonStr = new Buffer(process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64, 'base64').toString()
+  const authKeys = JSON.parse(jsonStr)
+  const auth = google.auth.fromJSON(authKeys)
+  auth.scopes = ['https://www.googleapis.com/auth/calendar.events']
 
   const calendar = google.calendar({
     auth,
@@ -48,6 +50,7 @@ const importEvents = async (events) => {
   }
 
   return pMap(events, importEvent, { concurrency: 10 })
+    .then(() => events.map(event => event.uid))
 }
 
 const getEvents = async () => {
@@ -70,7 +73,20 @@ const maybeFilter = (events) => {
   return events.filter(event => event.start >= cutOff)
 }
 
-getEvents()
-  .then(maybeFilter)
-  .then(importEvents)
-  .catch(console.error)
+exports.handler = () => {
+  const requireds = [
+    'ICAL_URL',
+    'GOOGLE_CALENDAR_ID',
+    'GOOGLE_APPLICATION_CREDENTIALS_BASE64',
+  ]
+
+  const hasEnv = requireds.every(env => env in process.env)
+  if (!hasEnv) {
+    throw new Error(`missing required env vars: ${requireds}`)
+  }
+
+  return getEvents()
+    .then(maybeFilter)
+    .then(importEvents)
+    .catch(console.error)
+}
