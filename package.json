@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Sync iCal to Google Calendar",
   "main": "index.js",
+  "bin": "cli.js",
   "scripts": {},
   "repository": {
     "type": "git",
