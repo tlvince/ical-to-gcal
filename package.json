@@ -1,6 +1,6 @@
 {
-  "name": "ical-to-gcal",
-  "version": "0.0.0",
+  "name": "@tlvince/ical-to-gcal",
+  "version": "1.0.0",
   "description": "Sync iCal to Google Calendar",
   "main": "index.js",
   "bin": "cli.js",
