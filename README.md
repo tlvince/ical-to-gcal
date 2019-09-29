@@ -36,27 +36,11 @@ echo GOOGLE_APPLICATION_CREDENTIALS_BASE64=$(jq -c '.' /path/to/creds.json | bas
 
 ## Usage
 
-Create a Lambda:
-
-```shell
-name=$(jq -r .name package.json)
-aws lambda create-function \
-  --function-name "$name" \
-  --runtime "nodejs8.10" \
-  --role "$name" \
-  --handler "exports.handler"
-```
-
-Create `.env`, set in Lambda with [dotenv-lambda][]
-
-Upload Lambda with [deploy-lambda][]
-
-[deploy-lambda]: https://github.com/tlvince/scripts-shell/blob/master/deploy-lambda.sh
-[dotenv-lambda]: https://github.com/tlvince/scripts-shell/blob/master/dotenv-lambda.sh
+`ical-to-gcal`
 
 ## Author
 
-© 2018 Tom Vincent <git@tlvince.com> (https://tlvince.com)
+© 2018-2019 Tom Vincent <git@tlvince.com> (https://tlvince.com)
 
 ## License
 

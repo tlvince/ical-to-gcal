@@ -121,7 +121,7 @@ const syncGcal = async (rawEvents) => {
   return importEvents(api, iCalEvents)
 }
 
-exports.handler = () => {
+module.exports = () => {
   const requireds = [
     'ICAL_URL',
     'GOOGLE_CALENDAR_ID',

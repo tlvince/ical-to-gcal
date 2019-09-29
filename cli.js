@@ -2,8 +2,8 @@
 
 require('dotenv').config()
 
-const { handler } = require('.')
+const icalToGcal = require('.')
 
-handler()
+icalToGcal()
   .then(console.log)
   .catch(console.error)
