@@ -31,7 +31,7 @@
     "simple-get-promise": "1.0.2"
   },
   "devDependencies": {
-    "dotenv": "8.1.0",
+    "dotenv": "8.2.0",
     "standard": "14.3.1"
   },
   "files": [
