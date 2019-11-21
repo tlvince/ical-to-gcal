@@ -34,7 +34,7 @@
     "googleapis": "43.0.0",
     "node-ical": "0.9.2",
     "p-map": "3.0.0",
-    "simple-get-promise": "1.0.2"
+    "simple-get-promise": "2.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.7.2",
