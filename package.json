@@ -1,10 +1,16 @@
 {
-  "name": "@tlvince/ical-to-gcal",
+  "name": "ical-to-gcal",
   "version": "1.0.0",
   "description": "Sync iCal to Google Calendar",
-  "main": "index.js",
-  "bin": "cli.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "bin": "dist/cli.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint .",
+    "postbuild": "chmod +x dist/cli.js",
+    "test": "jest",
+    "test:smoke": "node -e \"require('./dist')\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tlvince/ical-to-gcal.git"
@@ -31,14 +37,28 @@
     "simple-get-promise": "1.0.2"
   },
   "devDependencies": {
-    "dotenv": "8.1.0",
-    "standard": "14.3.1"
+    "@babel/core": "7.7.2",
+    "@babel/plugin-transform-regenerator": "7.7.0",
+    "@babel/plugin-transform-runtime": "7.6.2",
+    "@babel/preset-env": "7.7.1",
+    "@babel/preset-typescript": "7.7.2",
+    "@babel/runtime": "7.7.2",
+    "@commitlint/config-conventional": "8.2.0",
+    "@types/jest": "24.0.23",
+    "commitlint": "8.2.0",
+    "dotenv": "8.2.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-config-tlvince": "2.0.16",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "lint-staged": "9.4.3",
+    "nock": "11.7.0",
+    "prettier": "1.19.1",
+    "typescript": "3.7.2"
   },
   "files": [
-    "index.js"
+    "dist/"
   ],
-  "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
+  "license": "MIT"
 }

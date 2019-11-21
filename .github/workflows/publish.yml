@@ -1,0 +1,56 @@
+name: Publish
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: NPM or Yarn install with caching
+        uses: bahmutov/npm-install@v1.1.0
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: 'Test: smoke'
+        run: npm run test:smoke
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        with:
+          branch: master
+          semantic_version: '^15'
+          extra_plugins: |
+            '@semantic-release/git@^7'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js with GitHub Package Registry
+        if: steps.semantic.outputs.new_release_published == 'true'
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@tlvince'
+
+      - name: Publish To GitHub Package Registry
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          sed -i 's_^  "name": "_&@tlvince/_' package.json
+          npm publish
+          git checkout package.json
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
