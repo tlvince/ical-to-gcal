@@ -2,7 +2,7 @@
 
 require('dotenv').config()
 
-const icalToGcal = require('.')
+import icalToGcal from '.'
 
 icalToGcal()
   .then(console.log)
