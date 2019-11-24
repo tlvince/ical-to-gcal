@@ -14,8 +14,8 @@ Create a Google Calendar and set up access via the API. See [Using Google Calend
 4. Share the calendar with the service account
 5. Make a note of the calendar's ID
 
-[Using Google Calendar API on G Suite]: https://neal.codes/blog/google-calendar-api-on-g-suite
-[Google Developers project]: https://console.developers.google.com/
+[using google calendar api on g suite]: https://neal.codes/blog/google-calendar-api-on-g-suite
+[google developers project]: https://console.developers.google.com/
 [change secondary calendars]: https://admin.google.com/AdminHome?fral=1#AppDetails:service=Calendar&flyout=general
 
 ### Environment

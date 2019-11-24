@@ -2,7 +2,7 @@ import ical from 'node-ical'
 import pMap from 'p-map' // eslint-disable-line import/default
 import delay from 'delay' // eslint-disable-line import/default
 import { google } from 'googleapis'
-import { get } from 'simple-get-promise'
+import { get } from 'simple-get-promise' // eslint-disable-line import/no-unresolved
 
 const now = Date.now()
 

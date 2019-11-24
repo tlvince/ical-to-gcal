@@ -6,8 +6,11 @@
   "bin": "dist/cli.js",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint .",
+    "eslint": "eslint '**/*.{js,jsx,ts,tsx,json}'",
+    "lint": "npm run eslint && npm run prettier -- --check",
+    "lint:fix": "npm run eslint -- --fix && npm run prettier -- --write",
     "postbuild": "chmod +x dist/cli.js",
+    "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,css,md}'",
     "test": "jest",
     "test:smoke": "node -e \"require('./dist')\""
   },

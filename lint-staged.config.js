@@ -2,7 +2,7 @@ module.exports = {
   '*.ts': [
     'eslint --cache --fix',
     'git add',
-    'npm test -- --bail --findRelatedTests',
+    'yarn test --bail --findRelatedTests',
   ],
-  '*.{js,ts,json,css,md}': ['prettier --write', 'git add'],
+  '*.{js,jsx,ts,tsx,json,css,md}': ['prettier --write', 'git add'],
 }
