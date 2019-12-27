@@ -51,7 +51,7 @@
     "commitlint": "8.2.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
-    "eslint-config-prettier": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
     "eslint-config-tlvince": "2.0.39",
     "husky": "3.1.0",
     "jest": "24.9.0",
