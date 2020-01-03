@@ -48,7 +48,7 @@
     "@babel/runtime": "7.7.7",
     "@commitlint/config-conventional": "8.3.3",
     "@types/jest": "24.0.25",
-    "commitlint": "8.2.0",
+    "commitlint": "8.3.3",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.9.0",
