@@ -48,7 +48,7 @@ const importEvents = async (api, events) => {
 
   console.log(`found ${events.length} events`)
 
-  const importEvent = async event => {
+  const importEvent = async (event) => {
     await randomDelay()
     console.log('importing', event.uid)
     const params = {
@@ -65,14 +65,14 @@ const importEvents = async (api, events) => {
         description: event.description,
       },
     }
-    return api.events.import(params).catch(err => {
+    return api.events.import(params).catch((err) => {
       console.error(`event ${event.uid} failed`)
       console.error(err)
     })
   }
 
   return pMap(events, importEvent, { concurrency: 10 }).then(() =>
-    events.map(event => event.uid)
+    events.map((event) => event.uid)
   )
 }
 
@@ -92,19 +92,19 @@ const maybeFilter = (events, cutOff) => {
   if (!process.env.FILTER_EVENTS) {
     return events
   }
-  return events.filter(event => event.start >= cutOff)
+  return events.filter((event) => event.start >= cutOff)
 }
 
 const maybeDelete = async (api, iCalEvents, gCalEvents) => {
   const deletedEvents = gCalEvents.filter(
-    gCalEvent =>
-      !iCalEvents.find(iCalEvent => gCalEvent.iCalUID === iCalEvent.uid)
+    (gCalEvent) =>
+      !iCalEvents.find((iCalEvent) => gCalEvent.iCalUID === iCalEvent.uid)
   )
   if (!deletedEvents.length) {
     return
   }
   console.log('deleting %s events', deletedEvents.length)
-  const deleteEvent = async event => {
+  const deleteEvent = async (event) => {
     await randomDelay()
     console.log('deleting', event.id)
     const params = {
@@ -116,7 +116,7 @@ const maybeDelete = async (api, iCalEvents, gCalEvents) => {
   return pMap(deletedEvents, deleteEvent, { concurrency: 10 })
 }
 
-const syncGcal = async rawEvents => {
+const syncGcal = async (rawEvents) => {
   const api = authGcal()
 
   const hour = 60 * 60000
@@ -139,7 +139,7 @@ export default () => {
     'GOOGLE_APPLICATION_CREDENTIALS_BASE64',
   ]
 
-  const hasEnv = requireds.every(env => env in process.env)
+  const hasEnv = requireds.every((env) => env in process.env)
   if (!hasEnv) {
     throw new Error(`missing required env vars: ${requireds}`)
   }
