@@ -34,7 +34,7 @@
   "homepage": "https://github.com/tlvince/ical-to-gcal#readme",
   "dependencies": {
     "delay": "4.3.0",
-    "googleapis": "49.0.0",
+    "googleapis": "50.0.0",
     "node-ical": "0.10.0",
     "p-map": "4.0.0",
     "simple-get-promise": "3.0.0"
