@@ -4,6 +4,4 @@ require('dotenv').config()
 
 import icalToGcal from '.'
 
-icalToGcal()
-  .then(console.log)
-  .catch(console.error)
+icalToGcal().then(console.log).catch(console.error)
