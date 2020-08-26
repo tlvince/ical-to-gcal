@@ -55,7 +55,7 @@
     "eslint-config-tlvince": "2.1.18",
     "husky": "4.2.5",
     "jest": "26.4.2",
-    "lint-staged": "10.2.11",
+    "lint-staged": "10.2.13",
     "nock": "13.0.4",
     "prettier": "1.19.1",
     "typescript": "4.0.2"
