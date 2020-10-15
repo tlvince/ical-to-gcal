@@ -35,7 +35,7 @@
   "dependencies": {
     "delay": "4.4.0",
     "googleapis": "61.0.0",
-    "node-ical": "0.12.1",
+    "node-ical": "0.12.2",
     "p-map": "4.0.0",
     "simple-get-promise": "3.0.0"
   },
