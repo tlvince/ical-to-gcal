@@ -47,7 +47,7 @@
     "@babel/preset-typescript": "7.12.1",
     "@babel/runtime": "7.12.5",
     "@commitlint/config-conventional": "11.0.0",
-    "@types/jest": "26.0.15",
+    "@types/jest": "26.0.18",
     "commitlint": "11.0.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
